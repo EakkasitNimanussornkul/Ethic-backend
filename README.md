@@ -27,3 +27,13 @@ Backend/
   requirements.txt
   .env.example
 ```
+
+## Database (Supabase)
+Run these once in the Supabase SQL editor, in order:
+1. `db/schema.sql` — creates tables + row-level security
+2. `db/seed.sql`   — inserts two starter modules and their quiz questions
+
+## Auth model
+The frontend logs in with `supabase-js` and sends the Supabase access token as
+`Authorization: Bearer <token>`. The backend verifies it in `app/core/auth.py`
+using `SUPABASE_JWT_SECRET`, then uses the service-role key for DB access.
