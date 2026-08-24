@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import health, quizzes, progress
+from app.api.routes import health, modules, progress, quizzes
 from app.core.config import get_settings
 
 settings = get_settings()
@@ -18,6 +18,7 @@ app.add_middleware(
 
 # Route groups live under app/api/routes/ and are mounted here
 app.include_router(health.router)
+app.include_router(modules.router, prefix="/api")
 app.include_router(quizzes.router, prefix="/api")
 app.include_router(progress.router, prefix="/api")
 
