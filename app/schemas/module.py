@@ -8,6 +8,11 @@ class Section(BaseModel):
     body: str
 
 
+class Reference(BaseModel):
+    citation: str
+    url: str | None = None
+
+
 class ModuleSummary(BaseModel):
     id: int
     slug: str
@@ -18,4 +23,5 @@ class ModuleSummary(BaseModel):
 
 class ModuleDetail(ModuleSummary):
     sections: list[Section] = []
+    references: list[Reference] = []
     questions: list[QuizQuestion] = []
