@@ -29,7 +29,7 @@ def get_module(module_id: int, _: str = Depends(get_current_user_id)):
     supabase = get_supabase()
     mod = (
         supabase.table("modules")
-        .select("id, slug, title, summary, order, sections")
+        .select("id, slug, title, summary, order, sections, references")
         .eq("id", module_id)
         .single()
         .execute()
