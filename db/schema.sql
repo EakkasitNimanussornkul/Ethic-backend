@@ -16,6 +16,8 @@ create table modules (
     summary     text not null default '',
     "order"     int  not null default 0,
     sections    jsonb not null default '[]'::jsonb,
+    -- Real sources for the module's content: [{ "citation": "…", "url": "…" }, …]
+    "references" jsonb not null default '[]'::jsonb,
     created_at  timestamptz not null default now()
 );
 
