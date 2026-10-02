@@ -11,6 +11,8 @@ class Settings(BaseSettings):
 
     # CORS: the Vite dev server origin
     frontend_origin: str = "http://localhost:5173"
+    # Optional regex to allow all deploy URLs of a host (e.g. Vercel previews)
+    frontend_origin_regex: str = ""
 
     # Supabase
     supabase_url: str = ""
